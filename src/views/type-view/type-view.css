@@ -1,0 +1,27 @@
+.type-container{
+    gap: var(--Pad16);
+}
+    .type-container > *{
+        width: 100%;
+    }
+    .header-type-container{
+        justify-content: space-between;
+        color: var(--Negro);
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+        .header-type-container > button{
+            font-weight: bold;
+        }
+    .footer-type-container{
+        gap: var(--Pad8);
+        flex-wrap: wrap;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+        .footer-type-container > *{
+            flex-grow: 1;
+            flex-shrink: 2;
+            width: 18%;
+        }
