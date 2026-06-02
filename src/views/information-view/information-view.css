@@ -1,3 +1,36 @@
 .information-container{
-    min-height: 200px;
+    height: auto;
+    min-height: 300px;
+    flex-wrap: wrap;
+    gap: var(--Pad16);
 }
+    .information-container > *{
+        width: 100%;
+        
+        /* flex-shrink: 1; */
+    }
+    .header-information{
+        height: auto;
+        justify-content: space-between;
+    }
+    .main-information{
+        height: 50%;
+        min-height: 50%;
+        flex-grow: 1;
+
+    }
+        .main-information > *{
+            width: 100%;
+            
+        }
+        .info-places {
+            gap: var(--Pad16);
+            font-size: 12px;
+            justify-content: start;
+        }
+    .footer-information{
+        height: auto;
+        border-width: 1px 0 0 0;
+        padding-top: var(--Pad16);
+        font-size: 12px;
+    }

@@ -33,8 +33,24 @@ export class InformationView extends LitElement {
     render() {
         return html`
             <section class="general-section information-container container-styled d-flexx d-col">
-                <div class="header-information">
+                <div class="header-information d-flexx d-row">
                     <span class="btn-gen btn-primary">${unsafeHTML(icons.nocthyr)} Nocthyr</span>
+                    <div class="labels">
+                        <span class="label">d</span>
+                    </div>
+                </div>
+                <article class="main-information">
+                    <h2>Umbros</h2>
+                    <div class="info-places d-flexx d-row">
+                        <small>LAT: -26.444</small>
+                        <small>LON: 103.728</small>
+                        <small>PO: 2800000</small>
+                        <small>KM: 1980000</small>
+                    </div>
+                    
+                </article>
+                <div class="footer-information border">
+                    <p>SIGNATURE: In darkness, truth awakens.</p>
                 </div>
             </section>
         `;
