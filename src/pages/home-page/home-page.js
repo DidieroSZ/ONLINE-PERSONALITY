@@ -10,8 +10,13 @@ import innerStyles from './home-styles.css?inline';
 /* --- SERVICES --- */
 /* --- SERVICES --- */
 
-/* --- COMPONENTS --- */
+/* --- VIEWS --- */
 import '../../views/type-view/type-view.js';
+import '../../views/information-view/information-view.js';
+/* --- VIEWS --- */
+
+/* --- COMPONENTS --- */
+import '../../components/didieros-link-component/didieros-link-component.js';
 /* --- COMPONENTS --- */
 
 /**
@@ -38,7 +43,10 @@ export class HomePage extends LitElement {
     render() {
         return html`
             <main class="main-section general-section d-flexx d-col">
+                <didieros-link-component></didieros-link-component>
                 <type-view></type-view>
+                <information-view></information-view>
+                <customization-view></customization-view>
             </main>
         `;
     }

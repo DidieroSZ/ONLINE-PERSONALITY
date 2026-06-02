@@ -1,0 +1,11 @@
+a.link-didieros{
+    font-size: var(--Pad32);
+    text-align: center;
+
+    font-family: "MonteCarlo", cursive;
+    text-decoration: none;
+    color: var(--Negro);
+    line-height: 1cap;
+    height: 1cap;
+   /*  position: absolute; */
+}

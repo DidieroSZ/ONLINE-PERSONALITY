@@ -41,63 +41,63 @@ export class TypeView extends LitElement {
     }
 
     _renderOptions(){
-        const vibeTypes = [
+        const fantasyRealms = [
             {
-                id: 'gaming',
-                name: 'Gaming',
-                icon: 'gamepad'
+                id: 'aetherion',
+                name: 'Aetherion',
+                description: 'A celestial kingdom floating above the clouds, ruled by ancient star mages and guardians of cosmic balance.'
             },
             {
-                id: 'music',
-                name: 'Music',
-                icon: 'music-note'
+                id: 'drakmor',
+                name: 'Drakmor',
+                description: 'A volcanic empire forged by dragon riders, where fire and steel shape the destiny of warriors.'
             },
             {
-                id: 'anime',
-                name: 'Anime',
-                icon: 'sparkles'
+                id: 'eldervale',
+                name: 'Eldervale',
+                description: 'An enchanted forest realm filled with immortal elves, glowing rivers, and forgotten magic.'
             },
             {
-                id: 'tech',
-                name: 'Tech',
-                icon: 'cpu'
+                id: 'nocthyr',
+                name: 'Nocthyr',
+                description: 'A shadow kingdom hidden beneath eternal night, home to assassins, vampires, and moon priests.'
             },
             {
-                id: 'dark',
-                name: 'Dark',
-                icon: 'moon-stars'
+                id: 'solgard',
+                name: 'Solgard',
+                description: 'A radiant golden kingdom devoted to honor, light, and powerful solar knights.'
             },
             {
-                id: 'cute',
-                name: 'Cute',
-                icon: 'heart'
+                id: 'frosthelm',
+                name: 'Frosthelm',
+                description: 'A frozen northern realm where giant beasts roam icy mountains and clans battle for survival.'
             },
             {
-                id: 'retro',
-                name: 'Retro',
-                icon: 'cassette'
+                id: 'nymeris',
+                name: 'Nymeris',
+                description: 'A mysterious oceanic kingdom built across coral cities and guarded by ancient sea spirits.'
             },
             {
-                id: 'cyber',
-                name: 'Cyber',
-                icon: 'shield'
+                id: 'grimHollow',
+                name: 'Grimhollow',
+                icon: 'skull',
+                description: 'A cursed land consumed by dark sorcery, haunted ruins, and creatures born from nightmares.'
             },
             {
-                id: 'minimal',
-                name: 'Minimal',
-                icon: 'circle'
+                id: 'thornreach',
+                name: 'Thornreach',
+                description: 'A wild overgrown realm where nature has reclaimed forgotten castles and beastfolk tribes thrive.'
             },
             {
-                id: 'fantasy',
-                name: 'Fantasy',
-                icon: 'wand-stars'
+                id: 'zephyria',
+                name: 'Zephyria',
+                description: 'A kingdom of floating islands powered by wind crystals and sky pirates sailing the endless heavens.'
             }
         ];
 
-        return vibeTypes.map(type => html`
+        return fantasyRealms.map(type => html`
             <type-component
                 .idType=${type.id}
-                .iconType=${type.icon}
                 .nameType=${type.name}
                 .checkedType=${this.selectedType === type.id}
                 @type-selected=${this._changeType}>

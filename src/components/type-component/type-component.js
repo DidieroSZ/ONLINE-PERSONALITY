@@ -14,7 +14,6 @@ import { icons } from '../../utils/icons.js'
 export class TypeComponent extends LitElement {
     static properties = {
         idType: { type: String},
-        iconType: { type: String},
         nameType: { type: String},
         checkedType: { type: Boolean},
     };
@@ -22,7 +21,6 @@ export class TypeComponent extends LitElement {
     constructor() {
         super();
         this.idType = 'icon';
-        this.iconType = 'icon';
         this.nameType = 'Bannano';
         this.checkedType = false;
     }
@@ -42,7 +40,7 @@ export class TypeComponent extends LitElement {
                 .checked=${this.checkedType}
                 @change=${this._onChange}>
                 <div class="inner-type-btn border d-flexx d-col trans">
-                    <span>${unsafeHTML(icons[this.iconType])}</span>
+                    <span>${unsafeHTML(icons[this.idType])}</span>
                     <p>${this.nameType}</p>
                 </div>
             </label>
