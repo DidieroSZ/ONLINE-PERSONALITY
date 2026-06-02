@@ -29,6 +29,10 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+.cursive-font{
+    font-family: "MonteCarlo", cursive;
+    line-height: 1cap;
+}
 /** FONTS */
 
 /** GENERAL STYLES */

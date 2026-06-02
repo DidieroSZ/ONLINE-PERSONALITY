@@ -20,8 +20,8 @@ export class TypeComponent extends LitElement {
 
     constructor() {
         super();
-        this.idType = 'icon';
-        this.nameType = 'Bannano';
+        this.idType = '';
+        this.nameType = '';
         this.checkedType = false;
     }
 

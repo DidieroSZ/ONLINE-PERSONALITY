@@ -28,7 +28,7 @@ export class DidierosLinkComponent extends LitElement {
 
     render() {
         return html`
-            <a class="link-didieros" href="https://didierosz.github.io/DIDIER.github.io/" target="_blank" title="Didieros Portfolio">
+            <a class="link-didieros cursive-font" href="https://didierosz.github.io/DIDIER.github.io/" target="_blank" title="Didieros Portfolio">
                 Didier Saucedo
             </a>
         `;

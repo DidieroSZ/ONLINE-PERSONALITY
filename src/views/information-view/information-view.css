@@ -13,21 +13,51 @@
         height: auto;
         justify-content: space-between;
     }
+        .header-information > span{
+            border: none;
+        }
+        .labels{
+            gap: var(--Pad8);
+        }
+            .label{
+                font-size: 12px;
+            }
     .main-information{
         height: 50%;
         min-height: 50%;
         flex-grow: 1;
-
+        justify-content: start;
+        gap: var(--Pad8);
     }
         .main-information > *{
             width: 100%;
-            
         }
-        .info-places {
+        .main-information > h2{
+            font-size: var(--Pad32);
+            font-weight: 500;
+        }
+        .info-places{
             gap: var(--Pad16);
-            font-size: 12px;
             justify-content: start;
         }
+            .info-places > *{
+                font-size: 12px;
+            }
+        .colors{
+            flex-wrap: nowrap;
+            gap: var(--Pad8);
+            
+        }
+            .item{
+                width: 20%;
+                min-width: 20%;
+                max-width: 40%;
+                height: 70px;
+                flex-grow: 1;
+                border-radius: var(--Pad16);
+                overflow: hidden;
+            }
+
     .footer-information{
         height: auto;
         border-width: 1px 0 0 0;

@@ -22,7 +22,7 @@ export class TypeView extends LitElement {
 
     constructor() {
         super();
-        this.selectedType ='';
+        this.selectedType ='aetherion';
     }
 
     static styles = [
@@ -57,6 +57,15 @@ export class TypeView extends LitElement {
 
     _changeType(e){
         this.selectedType = e.detail.type;
+        this._eventChanged();
+    }
+
+    _eventChanged() {
+        this.dispatchEvent(new CustomEvent('type-changed', {
+            bubbles: true,
+            composed: true,
+            detail: { type: this.selectedType }
+        }));
     }
 }
 customElements.define('type-view', TypeView);

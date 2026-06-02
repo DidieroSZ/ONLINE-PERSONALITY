@@ -2,7 +2,7 @@ export const fantasyRealms = [
     {
         id: 'aetherion',
         name: 'Aetherion',
-        colors: ['#7B9CFF', '#C8D8FF', '#F4F7FF'],
+        colors: ['#F4F7FF', '#C8D8FF', '#7B9CFF'],
         motto: 'Above the stars, beyond destiny.',
         capital: 'Astravale',
         population: 4200000,
@@ -58,7 +58,7 @@ export const fantasyRealms = [
     {
         id: 'solgard',
         name: 'Solgard',
-        colors: ['#F6C945', '#FFF1A6', '#FF9F1C'],
+        colors: ['#FFF1A6', '#F6C945', '#FF9F1C'],
         motto: 'The sun guides the worthy.',
         capital: 'Helior',
         population: 7300000,
@@ -128,7 +128,7 @@ export const fantasyRealms = [
     {
         id: 'zephyria',
         name: 'Zephyria',
-        colors: ['#89C2FF', '#D7F0FF', '#5AA9E6'],
+        colors: ['#D7F0FF', '#89C2FF', '#5AA9E6'],
         motto: 'Ride the winds of freedom.',
         capital: 'Aerwyn',
         population: 4700000,
