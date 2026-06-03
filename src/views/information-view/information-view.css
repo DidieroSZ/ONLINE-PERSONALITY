@@ -1,6 +1,6 @@
 .information-container{
     height: auto;
-    min-height: 300px;
+    /* min-height: 300px; */
     flex-wrap: wrap;
     gap: var(--Pad16);
 }
@@ -50,9 +50,7 @@
         }
             .item{
                 width: 20%;
-                min-width: 20%;
-                max-width: 40%;
-                height: 70px;
+                height: 10px;
                 flex-grow: 1;
                 border-radius: var(--Pad16);
                 overflow: hidden;

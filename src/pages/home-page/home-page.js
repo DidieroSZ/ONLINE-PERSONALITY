@@ -13,6 +13,7 @@ import innerStyles from './home-styles.css?inline';
 /* --- VIEWS --- */
 import '../../views/type-view/type-view.js';
 import '../../views/information-view/information-view.js';
+import '../../views/customization-view/customization-view.js';
 /* --- VIEWS --- */
 
 /* --- COMPONENTS --- */

@@ -59,7 +59,7 @@ export class InformationView extends LitElement {
                         <small>LAT: ${t.latitude}</small>
                         <small>LONG: ${t.longitude}</small>
                     </div>
-                    <p>${t.lore}</p>
+                    <p>${t.description} ${t.lore}</p>
                     <div class="colors d-flexx d-row">
                         <span class="item border" style="background-color: ${t.colors[0]};"></span>
                         <span class="item border" style="background-color: ${t.colors[1]};"></span>

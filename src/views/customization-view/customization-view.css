@@ -1,0 +1,20 @@
+.customization-container{
+    gap: var(--Pad16);
+    justify-content: start;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+    .customization-container > *{
+        width: 100%;
+    }
+    .display-container{
+        min-height: 100px;
+    }
+        .display-container > h3{
+            text-transform: capitalize;
+        }
+    .btns-container{
+        justify-content: start;
+        gap: var(--Pad8);
+    }
