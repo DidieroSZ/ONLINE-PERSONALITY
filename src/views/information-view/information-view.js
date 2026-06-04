@@ -1,6 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { unsafeCSS } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { keyed } from 'lit/directives/keyed.js';
 
 /* --- STYLES --- */
 import generalStyles from '../../styles/general.css?inline';
@@ -19,6 +20,11 @@ import { icons } from '../../utils/icons.js'
 import { fantasyRealms } from '../../utils/fantasy-realms.js'
 /* --- UTILS --- */
 
+/* --- GSAP --- */
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+/* --- GSAP --- */
+
 export class InformationView extends LitElement {
     static properties = {
         selectedType : { type: String },
@@ -32,7 +38,14 @@ export class InformationView extends LitElement {
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
-    ]
+    ];
+
+    async updated(changedProperties){
+        if (changedProperties.has('selectedType')) {
+            await this.updateComplete;
+            this._animateTexts();
+        }
+    }
 
     render() {
         return html`
@@ -45,7 +58,7 @@ export class InformationView extends LitElement {
     _renderInformation(){
         let filterred = fantasyRealms.filter( t => t.id === this.selectedType);
         
-        return filterred.map(t => html`
+        return filterred.map(t => keyed(t.id, html`
             <div class="header-information d-flexx d-row">
                     <span class="btn-gen btn-primary" style="background-color: ${t.colors[2]}; color: ${t.colors[0]};">${unsafeHTML(icons[t.id])} ${t.name}</span>
                     <div class="labels d-flexx d-row">
@@ -59,7 +72,7 @@ export class InformationView extends LitElement {
                         <small>LAT: ${t.latitude}</small>
                         <small>LONG: ${t.longitude}</small>
                     </div>
-                    <p>${t.description} ${t.lore}</p>
+                    <p class="description" aria-label="${t.description} ${t.lore}">${t.description} ${t.lore}</p>
                     <div class="colors d-flexx d-row">
                         <span class="item border" style="background-color: ${t.colors[0]};"></span>
                         <span class="item border" style="background-color: ${t.colors[1]};"></span>
@@ -69,8 +82,26 @@ export class InformationView extends LitElement {
                 <div class="footer-information border">
                     <p>SIGNATURE "${t.motto}"</p>
                 </div>
-        `); 
+        `)); 
     }
+    _animateTexts(){
+        gsap.registerPlugin(SplitText);
 
+        const description = this.renderRoot.querySelector(".description");
+        let splitInstance  = SplitText.create(description, { type: "words, chars" });
+
+        gsap.from(splitInstance.words, {
+            duration: 0.05,
+            y: 20,
+            autoAlpha: 0, 
+            stagger:{
+                amount: 1,
+                from: "start",
+            },
+            onComplete: () => {
+                splitInstance.revert()
+            },
+        });
+    }
 }
 customElements.define('information-view', InformationView);

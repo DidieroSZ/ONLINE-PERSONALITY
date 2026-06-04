@@ -65,9 +65,11 @@ npm run dev
 ![Lit](https://img.shields.io/badge/Lit-Element-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-purple)
+![ChanceJs](https://chancejs.com/index.html)
 
 - **Lit (LitElement)** → Componentes web reactivos
 - **JavaScript (Vanilla)** → Lógica principal de la aplicación
 - **HTML5** → Estructura
 - **CSS3** → Estilos y layout
 - **Vite** → Entorno de desarrollo y bundling
+- **ChanceJs** → Random names

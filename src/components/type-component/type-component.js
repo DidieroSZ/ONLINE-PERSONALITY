@@ -11,6 +11,10 @@ import innerStyles from './type-component.css?inline';
 import { icons } from '../../utils/icons.js'
 /* --- ICONS --- */
 
+/* --- MOTION --- */
+import { animate, press, hover  } from "motion"
+/* --- MOTION --- */
+
 export class TypeComponent extends LitElement {
     static properties = {
         idType: { type: String},
@@ -28,7 +32,12 @@ export class TypeComponent extends LitElement {
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
-    ]
+    ];
+
+    firstUpdated(){
+        /* this._animationHover(); */
+        this._animationClick();
+    }
 
     render() {
         return html`
@@ -39,9 +48,9 @@ export class TypeComponent extends LitElement {
                 value="${this.idType}"
                 .checked=${this.checkedType}
                 @change=${this._onChange}>
-                <div class="inner-type-btn border d-flexx d-col trans">
-                    <span>${unsafeHTML(icons[this.idType])}</span>
-                    <p>${this.nameType}</p>
+                <div class="inner-type-btn border d-flexx d-col ${this.idType}">
+                    <span class="trans">${unsafeHTML(icons[this.idType])}</span>
+                    <p class="trans">${this.nameType}</p>
                 </div>
             </label>
         `;
@@ -55,5 +64,23 @@ export class TypeComponent extends LitElement {
         }));
     }
 
+    _animationClick(){
+        const btn = this.renderRoot.querySelector(".inner-type-btn");
+
+        press(btn, (element) => {
+            animate(element, { scale: 0.8 }, { type: "spring", stiffness: 1500 })
+
+            return () => {
+                animate(element, { scale: 1 }, { type: "spring", stiffness: 200 })  
+            };
+        });
+    }
+    _animationHover(){
+        const btn = this.renderRoot.querySelector(".type-btn");
+        hover(btn, (element) => {
+            animate(element, { scale: 1.3 });
+            return () => animate(element, { scale: 1 });
+        });
+    }
 }
 customElements.define('type-component', TypeComponent);

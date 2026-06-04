@@ -117,9 +117,4 @@
     .btn-secundary:hover{
         background-color: var(--Gris);
     }
-.btn-lowKey{
-    border: none;
-    background-color: transparent;
-}
 /** BOTONES */
-

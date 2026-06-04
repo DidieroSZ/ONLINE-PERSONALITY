@@ -21,9 +21,49 @@
         font-size: 14px;
     }
 
+    .aetherion{
+        --Back: #7B9CFF;
+        --Text: #F4F7FF;
+    }
+    .drakmor{
+        --Back: #2A0F0A;
+        --Text: #C14924;
+    }
+    .eldervale{
+        --Back: #3A7D44;
+        --Text: #E8FFE0;
+    }
+    .nocthyr{
+        --Back: #1B1B2F;
+        --Text: #8F94FB;
+    }
+    .solgard{
+        --Back: #FF9F1C;
+        --Text: #FFF1A6;
+    }
+    .frosthelm{
+        --Back: #4B6584;
+        --Text: #8FD3FE;
+    }
+    .nymeris{
+        --Back: #0077B6;
+        --Text: #CAF0F8;
+    }
+    .grimHollow{
+        --Back: #2D132C;
+        --Text: #C72C41;
+    }
+    .thornreach{
+        --Back: #355834;
+        --Text: #B7CE63;
+    }
+    .zephyria{
+        --Back: #5AA9E6;
+        --Text: #D7F0FF;
+    }
 .type-btn input:checked ~ .inner-type-btn{
-    background-color: var(--Naranja);
-    border: solid 2px var(--Naranja2);
-    color: var(--Naranja2);
+    background-color: var(--Text);
+    border: solid 2px var(--Back);
+    color: var(--Back);
     font-weight: bold;
 }

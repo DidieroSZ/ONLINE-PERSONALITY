@@ -35,7 +35,6 @@ export class TypeView extends LitElement {
             <section class="general-section type-container container-styled d-flexx d-col">
                 <div class="header-type-container d-flexx d-row">
                     <p>Choose your vibe</p>
-                    <button class="btn-gen btn-lowKey">Surprise me</button>
                 </div>
                 <div class="footer-type-container d-flexx d-row">
                     ${this._renderOptions()}
