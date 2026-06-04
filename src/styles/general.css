@@ -29,6 +29,10 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+.cursive-font{
+    font-family: "MonteCarlo", cursive;
+    line-height: 1cap;
+}
 /** FONTS */
 
 /** GENERAL STYLES */
@@ -88,7 +92,6 @@
     cursor: pointer;
     background-color: var(--Blanco);
     border-radius: var(--Pad32);
-    
 }
     .btn-gen > svg{
         width: var(--Pad16);
@@ -104,12 +107,14 @@
     .btn-primary > svg{
         stroke-width: 3px;
     }
+    .btn-primary:hover{
+        background-color: var(--Naranja2);
+        color: var(--Blanco);
+    }
 .btn-secundary{
     background-color: var(--Blanco);
 }
-.btn-lowKey{
-    border: none;
-    background-color: transparent;
-}
-
+    .btn-secundary:hover{
+        background-color: var(--Gris);
+    }
 /** BOTONES */

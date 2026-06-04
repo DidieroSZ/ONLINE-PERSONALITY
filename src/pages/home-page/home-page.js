@@ -13,6 +13,7 @@ import innerStyles from './home-styles.css?inline';
 /* --- VIEWS --- */
 import '../../views/type-view/type-view.js';
 import '../../views/information-view/information-view.js';
+import '../../views/customization-view/customization-view.js';
 /* --- VIEWS --- */
 
 /* --- COMPONENTS --- */
@@ -27,12 +28,12 @@ import '../../components/didieros-link-component/didieros-link-component.js';
  */
 export class HomePage extends LitElement {
     static properties = {
-        count: { type: Number},
+        selectedType : { type: String },
     };
 
     constructor() {
         super();
-        this.count = 0;
+        this.selectedType ='aetherion';
     }
 
     static styles = [
@@ -44,11 +45,15 @@ export class HomePage extends LitElement {
         return html`
             <main class="main-section general-section d-flexx d-col">
                 <didieros-link-component></didieros-link-component>
-                <type-view></type-view>
-                <information-view></information-view>
+                <type-view @type-changed=${this._eventChanged}></type-view>
+                <information-view .selectedType=${this.selectedType}></information-view>
                 <customization-view></customization-view>
             </main>
         `;
+    }
+
+    _eventChanged(e) {
+        this.selectedType = e.detail.type;
     }
 }
 customElements.define('home-page', HomePage);
