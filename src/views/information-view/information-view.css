@@ -1,21 +1,16 @@
 .information-container{
     height: auto;
-    /* min-height: 300px; */
+    min-height: 300px;
     flex-wrap: wrap;
     gap: var(--Pad16);
 }
     .information-container > *{
         width: 100%;
-        
-        /* flex-shrink: 1; */
     }
     .header-information{
         height: auto;
         justify-content: space-between;
     }
-        .header-information > span{
-            border: none;
-        }
         .labels{
             gap: var(--Pad8);
         }
@@ -27,7 +22,7 @@
         min-height: 50%;
         flex-grow: 1;
         justify-content: start;
-        gap: var(--Pad8);
+        gap: var(--Pad16);
     }
         .main-information > *{
             width: 100%;

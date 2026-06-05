@@ -15,6 +15,8 @@ import '../../components/type-component/type-component.js';
 import { fantasyRealms } from '../../utils/fantasy-realms.js'
 /* --- UTILS --- */
 
+import ScrollReveal from 'scrollreveal';
+
 export class TypeView extends LitElement {
     static properties = {
         selectedType : { type: String },
@@ -28,7 +30,7 @@ export class TypeView extends LitElement {
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
-    ]
+    ];
 
     render() {
         return html`

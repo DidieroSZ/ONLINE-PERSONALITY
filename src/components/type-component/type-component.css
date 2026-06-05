@@ -61,9 +61,15 @@
         --Back: #5AA9E6;
         --Text: #D7F0FF;
     }
-.type-btn input:checked ~ .inner-type-btn{
+/* .type-btn input:checked ~ .inner-type-btn{
     background-color: var(--Text);
     border: solid 2px var(--Back);
     color: var(--Back);
+    font-weight: bold;
+} */
+.type-btn input:checked ~ .inner-type-btn{
+    background-color: var(--Naranja);
+    border: solid 2px var(--Naranja2);
+    color: var(--Naranja2);
     font-weight: bold;
 }
