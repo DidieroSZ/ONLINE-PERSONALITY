@@ -8,7 +8,7 @@ import innerStyles from './customization-view.css?inline';
 /* --- STYLES --- */
 
 /* --- COMPONENTS --- */
-/* import '../../components/type-component/type-component.js'; */
+import '../../components/skill-card-component/skill-card-component.js';
 /* --- COMPONENTS --- */
 
 import { chance } from 'chance';
@@ -84,18 +84,31 @@ export class CustomizationView extends LitElement {
             <article class="container-styled display-container d-flexx d-row">
                 <div class="item-display player-info d-flexx d-col">
                     <span class="banner-player d-flexx"></span>
-                    <h3>  ${this.generatedName} </h3>
+                    <h2 class="less-cursive-font">${this.generatedName}</h2>
                     <div class="basic-info d-flexx d-row">
-                        <span class="labels btn-gen btn-primary level">LVL: ${this.character.stats.level}</span>
-                        <span class="labels btn-gen ">PWR: 1452/1808</span>
-                        <span class="labels btn-gen ">Class: ${this.character.class.name}</span>
+                        <span class="label-general btn-gen btn-primary level">Level: ${this.character.stats.level}</span>
+                        <span class="label-general btn-gen ">PWR: 1452/1808</span>
+                        <span class="label-general btn-gen ">${this.character.class.name}</span>
                     </div>
                     <p>${this.character.class.flavor}.</p>
+                    <div class="cards-container d-flexx d-row">
+                        ${this._renderSkillCards(this.character.traits.skills)}
+                    </div>
+
                 </div>
                 <div class="item-display player-stats">
                 </div>
             </article>
         `;        
+    }
+
+    _renderSkillCards(skillsArray){
+        return skillsArray.map(s => html`
+            <skill-card-component
+                .skillName=${s.name}
+                .skillDescription=${s.flavor}>
+            </skill-card-component>
+        `); 
     }
 }
 customElements.define('customization-view', CustomizationView);

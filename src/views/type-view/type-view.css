@@ -15,7 +15,7 @@
             font-weight: bold;
         }
     .footer-type-container{
-        gap: var(--Pad8);
+        gap: var(--Pad16);
         flex-wrap: wrap;
         justify-content: stretch;
         align-items: stretch;

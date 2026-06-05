@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
 
 :root {
     --Blanco: #fff;
@@ -32,6 +33,11 @@
 .cursive-font{
     font-family: "MonteCarlo", cursive;
     line-height: 1cap;
+}
+.less-cursive-font{
+    font-family: "Beau Rivage", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 /** FONTS */
 
@@ -116,4 +122,22 @@
     .btn-secundary:hover{
         background-color: var(--Gris);
     }
+
+.label-general{
+    width: auto;
+    height: auto;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    pointer-events: none;
+    text-transform: uppercase;
+    border: 2px solid #00000014;
+    background-color: var(--Blanco);
+}
+.format-text-sm{
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}
 /** BOTONES */

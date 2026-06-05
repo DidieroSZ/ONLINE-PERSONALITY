@@ -64,15 +64,15 @@ export class InformationView extends LitElement {
             <div class="header-information d-flexx d-row">
                     <span class="btn-gen btn-primary">${unsafeHTML(icons[t.id])} ${t.name}</span>
                     <div class="labels d-flexx d-row">
-                        <small class="label btn-gen"><p>POPUL:</p> ${ new Intl.NumberFormat().format(t.population) }</small>
-                        <small class="label btn-gen"><p>KM<sup>2</sup>:</p> ${ new Intl.NumberFormat().format(t.territoryKm2) }</small>
+                        <small class="label-general btn-gen"><p>population:</p> ${ new Intl.NumberFormat().format(t.population) }</small>
+                        <small class="label-general btn-gen"><p>extension:</p> ${ new Intl.NumberFormat().format(t.territoryKm2) }</small>
                     </div>
                 </div>
                 <article class="main-information d-flexx d-col">
-                    <h2 class="cursive-font">${t.capital}</h2>
+                    <h2 class="less-cursive-font">${t.capital}</h2>
                     <div class="info-places d-flexx d-row">
-                        <small>LAT: ${t.latitude}</small>
-                        <small>LONG: ${t.longitude}</small>
+                        <small class="label-general">LAT: ${t.latitude}</small>
+                        <small class="label-general">LONG: ${t.longitude}</small>
                     </div>
                     <p class="description" aria-label="${t.description} ${t.lore}">${t.description} ${t.lore}</p>
                     <div class="colors d-flexx d-row">

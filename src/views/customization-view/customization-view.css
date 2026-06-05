@@ -33,8 +33,9 @@
                 overflow: hidden;
                 border-radius: var(--Pad8);
             }
-            .player-info > h3{
+            .player-info > h2{
                 text-transform: capitalize;
+                font-size: var(--Pad32);
             }
             .basic-info{
                 width: 100%;
@@ -43,17 +44,21 @@
                 justify-content: start;
                 gap: var(--Pad8);
             }
-                .labels{
-                    width: auto;
-                    padding: 2px 8px;
-                    border-radius: 5px;
-                    font-weight: bold;
-                    font-size: 12px;
-                    pointer-events: none;
-                }
                 .level{
                     background-color: var(--Naranja);
                     border: 1px solid var(--Naranja2);
+                }
+            .cards-container{
+                gap: var(--Pad8);
+                flex-wrap: wrap;
+                justify-content: stretch;
+                align-items: stretch;
+            }
+                .cards-container > *{
+                    flex-grow: 1;
+                    flex-shrink: 2;
+                    width: 45%;
+                    max-width: 50%;
                 }
 
 
