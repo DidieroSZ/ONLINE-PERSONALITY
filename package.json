@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "chance": "^1.1.13",
+    "chart.js": "^4.5.1",
     "gsap": "^3.15.0",
     "lit": "^3.3.2",
     "motion": "^12.40.0",

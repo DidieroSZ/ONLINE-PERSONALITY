@@ -13,6 +13,8 @@ import '../../components/skill-card-component/skill-card-component.js';
 
 import { chance } from 'chance';
 
+import Chart from 'chart.js/auto';
+
 /* --- ICONS --- */
 import { icons } from '../../utils/icons.js'
 /* --- ICONS --- */
@@ -26,7 +28,8 @@ export class CustomizationView extends LitElement {
         selectedType : { type: String },
         generatedName : { type: String },
         character: { type: Object },
-        parseado: { type: Boolean }
+        parseado: { type: Boolean },
+
     };
 
     constructor() {
@@ -34,7 +37,9 @@ export class CustomizationView extends LitElement {
         this.selectedType ='aetherion';
         this.generatedName ='BABY HELLO';
         this.character = {};
+
         this.parseado = false;
+        this.statsChart = null;
     }
 
     static styles = [
@@ -44,6 +49,15 @@ export class CustomizationView extends LitElement {
 
     firstUpdated(){
         /* this._generateName(); */
+    }
+
+    updated(changedProperties){
+
+        if(changedProperties.has('character') && this.parseado){
+            this.updateComplete.then(() => {
+                this._createChart();
+            });
+        }
     }
 
     render() {
@@ -75,7 +89,7 @@ export class CustomizationView extends LitElement {
 
             return html`
                 <article class="container-styled first-container d-flexx d-col">
-                    <p>Loading...</p>
+                    <p>Waiting to generate information...</p>
                 </article>
             `;
         }
@@ -83,20 +97,29 @@ export class CustomizationView extends LitElement {
         return html`
             <article class="container-styled display-container d-flexx d-row">
                 <div class="item-display player-info d-flexx d-col">
-                    <span class="banner-player d-flexx"></span>
+                    
                     <h2 class="less-cursive-font">${this.generatedName}</h2>
+                    <span class="banner-player d-flexx"></span>
                     <div class="basic-info d-flexx d-row">
                         <span class="label-general btn-gen btn-primary level">Level: ${this.character.stats.level}</span>
                         <span class="label-general btn-gen ">PWR: 1452/1808</span>
                         <span class="label-general btn-gen ">${this.character.class.name}</span>
+                        <span class="label-general btn-gen label-stats">Max Health: ${unsafeHTML(icons.heart)}${this.character.attributes.maxHealth}</span>
+                        <span class="label-general btn-gen label-stats">Stamina: ${unsafeHTML(icons.stamina)}${this.character.attributes.stamina} </span>
+                        <span class="label-general btn-gen label-stats">Walk Speed: ${unsafeHTML(icons.walk)}${this.character.attributes.walkSpeed}</span>
+                        <span class="label-general btn-gen label-stats">Attack Speed: ${unsafeHTML(icons.attack)}${this.character.attributes.attackSpeed}</span>
                     </div>
                     <p>${this.character.class.flavor}.</p>
-                    <div class="cards-container d-flexx d-row">
+                    <div class="attributes-char">
+                    </div>
+                    
+                    <div class="cards-container d-flexx d-col">
                         ${this._renderSkillCards(this.character.traits.skills)}
                     </div>
 
                 </div>
-                <div class="item-display player-stats">
+                <div class="item-display player-stats d-flexx d-col">
+                    <canvas id="statsChar"></canvas>
                 </div>
             </article>
         `;        
@@ -109,6 +132,52 @@ export class CustomizationView extends LitElement {
                 .skillDescription=${s.flavor}>
             </skill-card-component>
         `); 
+    }
+
+    _createChart(){
+        const canvas = this.renderRoot.getElementById('statsChar');
+        if(!canvas) return;
+
+        if(this.statsChart){
+            this.statsChart.destroy();
+        }
+
+        const attributes = this.character.attributes;
+        const stats = this.character.stats;
+
+        this.statsChart = new Chart(canvas, {
+            type: 'radar',
+            data: {
+                labels: ['Physical Damage', 'Magical Damage', 'Strength', 'Dexterity', 'Intelligence', 'Wisdom', 'Agility', 'Vitality', 'Luck'
+                ],
+                datasets: [{
+                    label: 'Character Stats',
+                    data: [
+                        attributes.physicalDamage,
+                        attributes.magicalDamage,
+                        stats.strength,
+                        stats.dexterity,
+                        stats.intelligence,
+                        stats.wisdom,
+                        stats.agility,
+                        stats.vitality,
+                        stats.luck,
+                    ],
+                    borderColor: '#F6850C',
+                    backgroundColor: 'rgba(246, 133, 12, 0.129)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#F6850C'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
     }
 }
 customElements.define('customization-view', CustomizationView);

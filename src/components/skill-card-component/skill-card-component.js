@@ -32,7 +32,7 @@ export class SkillCardComponent extends LitElement {
         return html`
             <div class="card border">
                 <div class="header-card border format-text-sm">${this.skillName}</div>
-                <div class="footer-card">${this.skillDescription}</div>
+                <div class="footer-card">${this.skillDescription}.</div>
             </div>
         `;
     }

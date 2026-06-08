@@ -13,7 +13,6 @@
     }
     .display-container{
         min-height: 100px;
-            align-items: start;
         flex-wrap: nowrap;
     }
         .item-display{
@@ -25,6 +24,7 @@
             justify-content: start;
             align-items: start;
             gap: var(--Pad8);
+            width: 30%;
         }
             .banner-player{
                 width: 70%;
@@ -32,6 +32,13 @@
                 background-color: var(--Negro);
                 overflow: hidden;
                 border-radius: var(--Pad8);
+            }
+            .banner-bg{
+                background-color:hsla(0,0%,100%,1);
+                background-image:
+                radial-gradient(at 40% 20%, hsla(14,100%,74%,1) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(175,100%,56%,1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(341,100%,93%,1) 0px, transparent 50%);
             }
             .player-info > h2{
                 text-transform: capitalize;
@@ -43,23 +50,31 @@
                 overflow: hidden;
                 justify-content: start;
                 gap: var(--Pad8);
+                flex-wrap: wrap;
             }
                 .level{
                     background-color: var(--Naranja);
                     border: 1px solid var(--Naranja2);
                 }
+                .label-stats{
+                    font-size: var(--Pad8);
+                }
+                    .label-stats > svg{
+                        width: 12px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
             .cards-container{
                 gap: var(--Pad8);
                 flex-wrap: wrap;
                 justify-content: stretch;
                 align-items: stretch;
             }
-                .cards-container > *{
-                    flex-grow: 1;
-                    flex-shrink: 2;
-                    width: 45%;
-                    max-width: 50%;
-                }
+
+
+        .player-stats{
+
+        }
 
 
 

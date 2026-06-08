@@ -1,25 +1,49 @@
-# Proyecto FINDE – Plataforma de Descubrimiento Local (Lit + JS)
+# Proyecto Fantasy Realms – Generador de Personajes y Reinos Fantásticos (Lit + JS)
 
-Este proyecto es una aplicación web desarrollada con **Lit (Web Components)** y **JavaScript Vanilla**, enfocada en el descubrimiento de lugares, experiencias y negocios locales.
+Este proyecto es una aplicación web desarrollada con **Lit (Web Components)** y **JavaScript Vanilla**, enfocada en la generación y personalización de personajes inspirados en universos de fantasía.
 
-FINDE permite a los usuarios explorar nuevas opciones de **recreación, entretenimiento, gastronomía, cultura y bienestar**, facilitando la conexión entre personas y negocios locales mediante una experiencia intuitiva, visual y personalizada.
+Fantasy Realms permite a los usuarios explorar distintos **reinos fantásticos**, cada uno con su propia identidad visual, historia, cultura, estadísticas y esencia narrativa. A partir de estas selecciones, la aplicación genera personajes únicos con atributos, equipamiento, clases y elementos RPG dinámicos.
 
-La aplicación está diseñada bajo una arquitectura modular basada en **componentes reutilizables**, lo que permite escalar funcionalidades como filtros dinámicos, categorías, mapas interactivos y contenido multimedia.
+La aplicación está diseñada bajo una arquitectura modular basada en **componentes reutilizables**, permitiendo una experiencia altamente visual e interactiva mediante vistas independientes para:
+* Selección de reinos
+* Información narrativa y visual
+* Visualización de estadísticas
 
-Se prioriza una experiencia fluida mediante el uso de:
-- Renderizado eficiente con Lit
-- Consumo de APIs (lugares, usuarios, recomendaciones)
-- Gestión de estado ligera en frontend
-- Integración con mapas y geolocalización
+Se prioriza una experiencia inmersiva utilizando:
+* Renderizado eficiente con Lit
+* Consumo de APIs externas para generación de personajes y datos RPG
+* Gestión reactiva de estado en frontend
+* Animaciones avanzadas con GSAP
 
-Además, FINDE busca ser una plataforma donde los negocios puedan **promocionarse**, mostrando:
-- Información relevante (costos, horarios, ubicación)
-- Propuesta de valor
-- Contenido visual (imágenes, videos)
+Cada reino cuenta con:
+* Lore e historia propia
+* Capital y territorio
+* Colores temáticos
+* Frases o lemas distintivos
+* Identidad visual personalizada
 
-El objetivo es construir un ecosistema digital que impulse el descubrimiento local y aumente la visibilidad de negocios.
+Además, los personajes generados incluyen:
+* Clases y atributos
+* Equipamiento y estadísticas
+* Rasgos y habilidades
+* Información narrativa dinámica
 
-Para el desarrollo se opta por una estructura clara y escalable, permitiendo crecimiento hacia funcionalidades como recomendaciones inteligentes, favoritos, reseñas y analítica.
+El objetivo es construir una experiencia interactiva que combine:
+* worldbuilding
+* personalización RPG
+* generación procedural
+* diseño visual fantasy
+
+Todo bajo una estructura escalable que permita incorporar futuras funcionalidades como:
+* generación de usernames fantasy
+* creación de facciones
+* mapas interactivos
+* sistemas de inventario
+* progresión de personajes
+* generación de historias mediante IA
+* multiversos y reinos conectados
+* perfiles persistentes y coleccionables
+
 
 ```sh
 components/ → Componentes pequeños y reutilizables (UI).
@@ -65,7 +89,8 @@ npm run dev
 ![Lit](https://img.shields.io/badge/Lit-Element-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-purple)
-![ChanceJs](https://chancejs.com/index.html)
+![ChanceJs](tps://img.shields.io/badge/ChanceJs-Lib-red)
+![Set](tps://img.shields.io/badge/Set-API-white)
 
 - **Lit (LitElement)** → Componentes web reactivos
 - **JavaScript (Vanilla)** → Lógica principal de la aplicación
@@ -73,3 +98,4 @@ npm run dev
 - **CSS3** → Estilos y layout
 - **Vite** → Entorno de desarrollo y bundling
 - **ChanceJs** → Random names
+- **Set** → API para: RPG Stats
