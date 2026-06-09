@@ -64,7 +64,7 @@ export class HomePage extends LitElement {
                 <didieros-link-component ></didieros-link-component>
                 <type-view class="reveal" @type-changed=${this._eventChanged}></type-view>
                 <information-view class="reveal" .selectedType=${this.selectedType}></information-view>
-                <customization-view class="reveal"></customization-view>
+                <customization-view class="reveal" .selectedType=${this.selectedType}></customization-view>
             </main>
         `;
     }

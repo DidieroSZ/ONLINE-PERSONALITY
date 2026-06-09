@@ -25,18 +25,20 @@ import { fantasyRealms } from '../../utils/fantasy-realms.js'
 
 export class CustomizationView extends LitElement {
     static properties = {
-        selectedType : { type: String },
+        /* selectedType : { type: String }, */
         generatedName : { type: String },
         character: { type: Object },
         parseado: { type: Boolean },
+        currentRealm: { type: String }
 
     };
 
     constructor() {
         super();
-        this.selectedType ='aetherion';
+        this.selectedType ='';
         this.generatedName ='BABY HELLO';
         this.character = {};
+
 
         this.parseado = false;
         this.statsChart = null;
@@ -47,15 +49,12 @@ export class CustomizationView extends LitElement {
         css`${unsafeCSS(innerStyles)}`,
     ];
 
-    firstUpdated(){
-        /* this._generateName(); */
-    }
-
     updated(changedProperties){
 
         if(changedProperties.has('character') && this.parseado){
             this.updateComplete.then(() => {
                 this._createChart();
+                
             });
         }
     }
@@ -74,6 +73,7 @@ export class CustomizationView extends LitElement {
     }
 
     async _generateName(){
+        this.currentRealm = this.selectedType;
         const chance = new Chance();
         let n = chance.word({ syllables: 3 });
         let a = chance.word({ syllables: 4 });
@@ -97,9 +97,9 @@ export class CustomizationView extends LitElement {
         return html`
             <article class="container-styled display-container d-flexx d-row">
                 <div class="item-display player-info d-flexx d-col">
-                    
-                    <h2 class="less-cursive-font">${this.generatedName}</h2>
-                    <span class="banner-player d-flexx"></span>
+                    <span class="banner-player banner-bg ${this.currentRealm} d-flexx">
+                        <h2 class="less-cursive-font">${this.generatedName}</h2>
+                    </span>
                     <div class="basic-info d-flexx d-row">
                         <span class="label-general btn-gen btn-primary level">Level: ${this.character.stats.level}</span>
                         <span class="label-general btn-gen ">PWR: 1452/1808</span>
@@ -110,9 +110,7 @@ export class CustomizationView extends LitElement {
                         <span class="label-general btn-gen label-stats">Attack Speed: ${unsafeHTML(icons.attack)}${this.character.attributes.attackSpeed}</span>
                     </div>
                     <p>${this.character.class.flavor}.</p>
-                    <div class="attributes-char">
-                    </div>
-                    
+
                     <div class="cards-container d-flexx d-col">
                         ${this._renderSkillCards(this.character.traits.skills)}
                     </div>
