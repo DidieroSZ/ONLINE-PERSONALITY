@@ -7,6 +7,7 @@
     justify-content: start;
     align-items: stretch;
     gap: var(--Pad16);
+    background-color: var(--Blanco);
 }
 
 didieros-link-component{

@@ -1,5 +1,6 @@
 .type-container{
     gap: var(--Pad16);
+    overflow: visible;
 }
     .type-container > *{
         width: 100%;

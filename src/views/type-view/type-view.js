@@ -9,6 +9,7 @@ import innerStyles from './type-view.css?inline';
 
 /* --- COMPONENTS --- */
 import '../../components/type-component/type-component.js';
+import '../../components/config-component/config-component.js';
 /* --- COMPONENTS --- */
 
 /* --- UTILS --- */
@@ -35,6 +36,7 @@ export class TypeView extends LitElement {
     render() {
         return html`
             <section class="general-section type-container container-styled d-flexx d-col">
+                <config-component></config-component>
                 <div class="header-type-container d-flexx d-row">
                     <p>Choose your vibe</p>
                 </div>

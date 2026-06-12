@@ -37,14 +37,7 @@
                 border-radius: var(--Pad8);
             }
             .banner-bg{
-                background-color: var(--Blanco);
-                background-image: 
-                radial-gradient(at 50% 120%, var(--Color1) 10px, transparent 40%), 
-                radial-gradient(at 89.4% 100%, var(--Color2) 10px, transparent 40%), 
-                radial-gradient(at 10.7% 100%, var(--Color3) 10px, transparent 40%);
-                mix-blend-mode: normal;
-                backdrop-filter: blur(140px) contrast(100%) brightness(100%);
-                -webkit-backdrop-filter: blur(140px) contrast(100%) brightness(100%)< 
+                background: linear-gradient(to right, var(--Color1), var(--Color3), var(--Color2));
             }
                 .aetherion{
                     --Color1: #F4F7FF;
