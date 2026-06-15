@@ -34,11 +34,13 @@ import { SplitText } from "gsap/SplitText";
 export class HomePage extends LitElement {
     static properties = {
         selectedType : { type: String },
+        theme : { type: String },
     };
 
     constructor() {
         super();
-        this.selectedType ='aetherion';
+        this.selectedType = 'aetherion';
+        this.theme = '';
     }
 
     static styles = [
@@ -62,15 +64,18 @@ export class HomePage extends LitElement {
         return html`
             <main class="main-section general-section d-flexx d-col">
                 <didieros-link-component ></didieros-link-component>
-                <type-view class="reveal" @type-changed=${this._eventChanged}></type-view>
+                <type-view class="reveal" @theme-selected=${this._themeChanged} @type-changed=${this._typeChanged}></type-view>
                 <information-view class="reveal" .selectedType=${this.selectedType}></information-view>
-                <customization-view class="reveal" .selectedType=${this.selectedType}></customization-view>
+                <customization-view class="reveal" .theme=${this.theme} .selectedType=${this.selectedType}></customization-view>
             </main>
         `;
     }
 
-    _eventChanged(e) {
+    _typeChanged(e) {
         this.selectedType = e.detail.type;
+    }
+    _themeChanged(e) {
+        this.theme = e.detail.theme;
     }
 
     _animationReveal(){

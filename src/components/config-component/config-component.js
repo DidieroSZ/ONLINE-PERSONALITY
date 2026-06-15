@@ -50,17 +50,17 @@ export class ConfigComponent extends LitElement {
 
 
     toggleTheme() {
-        this.theme =
-            this.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute(
-            'data-theme',
-            this.theme
-        );
+        this.theme = this.theme === 'dark' ? 'light' : 'dark';
 
-        localStorage.setItem(
-            'theme',
-            this.theme
-        );
+        document.documentElement.setAttribute('data-theme', this.theme);
+
+        this.dispatchEvent(new CustomEvent('theme-selected', {
+            bubbles: true,
+            composed: true,
+            detail: { theme: this.theme }
+        }));
+
+        localStorage.setItem('theme', this.theme);
     }
 }
 customElements.define('config-component', ConfigComponent);

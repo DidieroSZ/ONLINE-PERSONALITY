@@ -23,14 +23,19 @@ import { icons } from '../../utils/icons.js'
 import { fantasyRealms } from '../../utils/fantasy-realms.js'
 /* --- UTILS --- */
 
+/* --- GSAP --- */
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+/* --- GSAP --- */
+
 export class CustomizationView extends LitElement {
     static properties = {
-        /* selectedType : { type: String }, */
+        selectedType : { type: String },
         generatedName : { type: String },
         character: { type: Object },
         parseado: { type: Boolean },
-        currentRealm: { type: String }
-
+        currentRealm: { type: String },
+        theme: { type: String }
     };
 
     constructor() {
@@ -38,7 +43,7 @@ export class CustomizationView extends LitElement {
         this.selectedType ='';
         this.generatedName ='BABY HELLO';
         this.character = {};
-
+        this.theme = localStorage.getItem('theme') || 'dark';
 
         this.parseado = false;
         this.statsChart = null;
@@ -49,15 +54,21 @@ export class CustomizationView extends LitElement {
         css`${unsafeCSS(innerStyles)}`,
     ];
 
-    updated(changedProperties){
 
+    async updated(changedProperties){
         if(changedProperties.has('character') && this.parseado){
             this.updateComplete.then(() => {
                 this._createChart();
-                
+            });
+        }
+        if(changedProperties.has('theme') && this.parseado){
+            this.updateComplete.then(() => {
+                this._createChart();
             });
         }
     }
+
+    
 
     render() {
         return html`
@@ -81,6 +92,7 @@ export class CustomizationView extends LitElement {
 
         const response = await fetch('https://set.world/api/roll/character');
         this.character = await response.json();
+        this._animationHeight();
         this.parseado = true;
     }
 
@@ -132,7 +144,24 @@ export class CustomizationView extends LitElement {
         `); 
     }
 
+    /* _updateChartTheme() {
+        if (!this.statsChart) return;
+
+        const color = this.theme === 'light'
+            ? '#37363e'
+            : '#963c3c';
+
+        this.statsChart.options.scales.r.angleLines.color = color;
+        this.statsChart.options.scales.r.grid.color = color;
+        this.statsChart.options.scales.r.pointLabels.color = color;
+        this.statsChart.options.scales.r.ticks.color = color;
+
+        this.statsChart.update();
+    } */
+
     _createChart(){
+        const chartTextColor = this.theme === 'light' ? '#6b6b7b' : '#8c8c8c';
+
         const canvas = this.renderRoot.getElementById('statsChar');
         if(!canvas) return;
 
@@ -162,20 +191,66 @@ export class CustomizationView extends LitElement {
                         stats.luck,
                     ],
                     borderColor: '#F6850C',
-                    backgroundColor: 'rgba(246, 133, 12, 0.129)',
+                    backgroundColor: 'rgba(246,133,12,0.15)',
                     borderWidth: 2,
-                    pointBackgroundColor: '#F6850C'
+
+                    pointBackgroundColor: '#F6850C',
+                    pointBorderColor: '#F6850C',
+                    pointBorderWidth: 1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    pointStyle: 'rectRot'
                 }]
             },
             options: {
                 responsive: true,
+                animation: {
+                    duration: 1800,
+                    easing: 'easeOutElastic'
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: chartTextColor
+                        },
+                        grid: {
+                            color: chartTextColor
+                        },
+                        pointLabels: {
+                            color: chartTextColor
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            backdropColor: 'transparent',
+
+                        }
+                    }
+                },
                 plugins: {
                     legend: {
-                        display: false
-                    }
+                        display: false,
+                    },
                 }
             }
         });
     }
+
+    /* ---- ANIMATION FUNCTIONS ---- */
+    _animationHeight(){
+        const mainContainer = this.renderRoot.querySelector(".customization-container");
+
+        gsap.fromTo(
+            mainContainer,
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 2.2,
+                ease: "power4.out",
+            }
+        );
+    }
+    /* ---- END ANIMATION FUNCTIONS ---- */
 }
 customElements.define('customization-view', CustomizationView);

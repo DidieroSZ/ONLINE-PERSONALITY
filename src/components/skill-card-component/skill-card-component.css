@@ -13,6 +13,7 @@
     }
     .header-card{
         border-width: 0px 0px 1px 0px;
+        border-color: var(--BorderColor);
     }
     .footer-card{
         font-size: 12px;

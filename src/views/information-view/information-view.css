@@ -3,6 +3,7 @@
     min-height: 300px;
     flex-wrap: wrap;
     gap: var(--Pad16);
+    color: var(--Negro);
 }
     .information-container > *{
         width: 100%;
