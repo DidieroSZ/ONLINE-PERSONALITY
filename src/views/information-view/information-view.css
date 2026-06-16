@@ -46,6 +46,7 @@
                 flex-grow: 1;
                 border-radius: var(--Pad16);
                 overflow: hidden;
+                border-width: 1px;
             }
 
 

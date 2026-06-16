@@ -76,8 +76,8 @@ export class CustomizationView extends LitElement {
                 ${this._renderCharacter()}
                 <div class="btns-container d-flexx d-row">
                     <button @click=${this._generateName} class="btn-gen btn-primary d-flexx trans">${unsafeHTML(icons.repeat)} Regenerate</button>
-                    <button class="btn-gen btn-secundary d-flexx trans">${unsafeHTML(icons.copy)} Copy</button>
-                    <button class="btn-gen btn-secundary d-flexx trans">${unsafeHTML(icons.save)} Save</button>
+                    
+                    <button class="btn-gen btn-secundary d-flexx trans">${unsafeHTML(icons.download)} Download</button>
                 </div>
             </section>
         `;
@@ -85,15 +85,17 @@ export class CustomizationView extends LitElement {
 
     async _generateName(){
         this.currentRealm = this.selectedType;
-        const chance = new Chance();
-        let n = chance.word({ syllables: 3 });
-        let a = chance.word({ syllables: 4 });
-        this.generatedName = n + ' ' + a;
+        
 
         const response = await fetch('https://set.world/api/roll/character');
         this.character = await response.json();
         this._animationHeight();
         this.parseado = true;
+
+        const chance = new Chance();
+        let n = chance.word({ syllables: 3 });
+        let a = chance.word({ syllables: 4 });
+        this.generatedName = n + ' ' + a;
     }
 
     _renderCharacter(){
@@ -114,13 +116,10 @@ export class CustomizationView extends LitElement {
                     </span>
                     <div class="basic-info d-flexx d-row">
                         <span class="label-general btn-gen btn-primary level">Level: ${this.character.stats.level}</span>
-                        <span class="label-general btn-gen ">PWR: 1452/1808</span>
-                        <span class="label-general btn-gen ">${this.character.class.name}</span>
-                        <span class="label-general btn-gen label-stats">Max Health: ${unsafeHTML(icons.heart)}${this.character.attributes.maxHealth}</span>
-                        <span class="label-general btn-gen label-stats">Stamina: ${unsafeHTML(icons.stamina)}${this.character.attributes.stamina} </span>
-                        <span class="label-general btn-gen label-stats">Walk Speed: ${unsafeHTML(icons.walk)}${this.character.attributes.walkSpeed}</span>
-                        <span class="label-general btn-gen label-stats">Attack Speed: ${unsafeHTML(icons.attack)}${this.character.attributes.attackSpeed}</span>
+                        <span class="label-general btn-gen ">Na: ${this.currentRealm}</span>
+                        <span class="label-general btn-gen ">Class: ${this.character.class.name}</span>
                     </div>
+        
                     <p>${this.character.class.flavor}.</p>
 
                     <div class="cards-container d-flexx d-col">
@@ -129,7 +128,14 @@ export class CustomizationView extends LitElement {
 
                 </div>
                 <div class="item-display player-stats d-flexx d-col">
+                    
                     <canvas id="statsChar"></canvas>
+                    <div class="other-stats-info d-flexx d-row">
+                        <div class="stats d-flexx d-col border " title="Max Health"><span class="d-flexx health">${unsafeHTML(icons.heart)}</span><p>${this.character.attributes.maxHealth}</p></div>
+                        <div class="stats d-flexx d-col border " title="Stamina"><span class="d-flexx stamina">${unsafeHTML(icons.stamina)}</span><p>${this.character.attributes.stamina}</p></div>
+                        <div class="stats d-flexx d-col border " title="Walk Speed"><span class="d-flexx walk">${unsafeHTML(icons.walk)}</span><p>${this.character.attributes.walkSpeed}</p></div>
+                        <div class="stats d-flexx d-col border " title="Attack Speed"><span class="d-flexx attack">${unsafeHTML(icons.attack)}</span><p>${this.character.attributes.attackSpeed}</p></div>
+                    </div>
                 </div>
             </article>
         `;        
@@ -143,21 +149,6 @@ export class CustomizationView extends LitElement {
             </skill-card-component>
         `); 
     }
-
-    /* _updateChartTheme() {
-        if (!this.statsChart) return;
-
-        const color = this.theme === 'light'
-            ? '#37363e'
-            : '#963c3c';
-
-        this.statsChart.options.scales.r.angleLines.color = color;
-        this.statsChart.options.scales.r.grid.color = color;
-        this.statsChart.options.scales.r.pointLabels.color = color;
-        this.statsChart.options.scales.r.ticks.color = color;
-
-        this.statsChart.update();
-    } */
 
     _createChart(){
         const chartTextColor = this.theme === 'light' ? '#6b6b7b' : '#8c8c8c';
@@ -203,6 +194,11 @@ export class CustomizationView extends LitElement {
                 }]
             },
             options: {
+                interaction: {
+                    intersect: false,
+                    axis: 'xy',
+                    mode: 'nearest',
+                },
                 responsive: true,
                 animation: {
                     duration: 1800,

@@ -15,7 +15,7 @@
     --Pad32: 32px;
 }
 
-:root[data-theme="light"] {
+:root[data-theme="dark"] {
     --Blanco: #1f1e22; 
     --Gris: #0e0e10;
     --Negro: #FFF;
@@ -99,7 +99,7 @@
     overflow: hidden;
     position: relative;
     color: var(--Negro);
-    border: 1px solid var(--BorderColor);
+    border: 2px solid var(--BorderColor);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +116,7 @@
 .btn-primary{
     background-color: var(--Naranja);
     font-weight: bold;
-    border: 1px solid var(--Naranja2);
+    border: 2px solid var(--Naranja2);
     color: var(--Naranja2);
 }
     .btn-primary > svg{

@@ -40,7 +40,7 @@ export class ConfigComponent extends LitElement {
         <div class="config-component d-flexx d-col">
             <button class="btn-gen btn-secundary trans d-flexx"
                     @click=${this.toggleTheme}>
-                    ${this.theme === 'dark' ? unsafeHTML(icons.solgard) : unsafeHTML(icons.moon)}
+                    ${this.theme === 'dark' ? unsafeHTML(icons.moon) : unsafeHTML(icons.solgard)}
             </button>
             <button class="btn-gen btn-secundary trans d-flexx">${unsafeHTML(icons.languages)}</button>
         </div>

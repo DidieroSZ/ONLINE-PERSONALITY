@@ -104,7 +104,7 @@
             }
                 .level{
                     background-color: var(--Naranja);
-                    border: 1px solid var(--Naranja2);
+                    border: 2px solid var(--Naranja2);
                 }
                 .label-stats{
                     font-size: var(--Pad8);
@@ -123,8 +123,99 @@
 
 
         .player-stats{
-
+            /* gap: var(--Pad16); */
         }
+            #statsChar{
+                
+            }
+            .other-stats-info{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                flex-wrap: nowrap;
+                color: var(--Negro);
+                
+                gap: var(--Pad16);
+            }
+                .stats{
+                    width: 60px;
+                    max-width: 90px;
+                    height: auto;
+                    padding: var(--Pad8);
+                    border-radius: 8px 8px 12px 12px;
+                    corner-bottom-shape: bevel bevel;
+                    flex-wrap: nowrap;
+                    gap: var(--Pad8);
+                    background-color: var(--Blanco);
+                }
+                    .stats > span{
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                        border-radius: 6px;
+                    }
+                        .stamina{
+                            background-color: #F2C14E;
+                        }
+                        .attack{
+                            background-color: #5FAD56;
+                        }
+                        .walk{
+                            background-color: #3891A6;
+                        }
+                        .health{
+                            background-color: #A8201A;
+                        }
+                        .stats svg{
+                            width: 20px;
+                            height: auto;
+                            aspect-ratio: 1/1;
+                            color: #fff;
+                        }
+                    .stats > p{
+                        font-size: 12px;
+                    }
+        /* .circle-info{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                justify-content: start;
+                gap: var(--Pad8);
+                flex-wrap: nowrap;
+                color: var(--Negro);
+            }
+                .stamina{
+                    background-color: #F2C14E;
+                }
+                .attack{
+                    background-color: #5FAD56;
+                }
+                .walk{
+                    background-color: #3891A6;
+                }
+                .health{
+                    background-color: #A8201A;
+                }
+                .circle{
+                    width: 55px;
+                    height: auto;
+                    aspect-ratio: 1/1;overflow: hidden;
+                    border-radius: 50%;
+                    position: relative;
+                    cursor: pointer;
+                }
+                    .circle svg{
+                        width: 16px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
+                    .circle > p{
+                        position: absolute;
+                        transform: translateX(-50%);
+                        bottom: 3px;
+                        left: 50%;
+                        font-size: 12px;
+                    } */
 
 
 
