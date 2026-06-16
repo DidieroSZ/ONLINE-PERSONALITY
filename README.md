@@ -89,8 +89,8 @@ npm run dev
 ![Lit](https://img.shields.io/badge/Lit-Element-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-purple)
-![Chance](tps://img.shields.io/badge/Chance-JS-blue)
-![Set](tps://img.shields.io/badge/Set-API-blue)
+![Chance](https://img.shields.io/badge/Chance-JS-F62440)
+![Set](https://img.shields.io/badge/Set-API-black)
 
 - **Lit (LitElement)** → Componentes web reactivos
 - **JavaScript (Vanilla)** → Lógica principal de la aplicación
