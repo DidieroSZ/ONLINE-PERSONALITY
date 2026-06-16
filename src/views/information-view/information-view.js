@@ -43,7 +43,8 @@ export class InformationView extends LitElement {
     async updated(changedProperties){
         if (changedProperties.has('selectedType')) {
             await this.updateComplete;
-            this._animateTexts();
+            /* this._animateTexts(); */
+            this._animationHeight();
         }
     }
 
@@ -55,22 +56,23 @@ export class InformationView extends LitElement {
         `;
     }
 
+    /* ---- RENDER FUNCTIONS ---- */
     _renderInformation(){
         let filterred = fantasyRealms.filter( t => t.id === this.selectedType);
         
         return filterred.map(t => keyed(t.id, html`
             <div class="header-information d-flexx d-row">
-                    <span class="btn-gen btn-primary" style="background-color: ${t.colors[2]}; color: ${t.colors[0]};">${unsafeHTML(icons[t.id])} ${t.name}</span>
+                    <span class="btn-gen btn-primary">${unsafeHTML(icons[t.id])} ${t.name}</span>
                     <div class="labels d-flexx d-row">
-                        <small class="label btn-gen"><p>POPUL:</p> ${ new Intl.NumberFormat().format(t.population) }</small>
-                        <small class="label btn-gen"><p>KM<sup>2</sup>:</p> ${ new Intl.NumberFormat().format(t.territoryKm2) }</small>
+                        <small class="label-general btn-gen"><p>population:</p> ${ new Intl.NumberFormat().format(t.population) }</small>
+                        <small class="label-general btn-gen"><p>extension:</p> ${ new Intl.NumberFormat().format(t.territoryKm2) }</small>
                     </div>
                 </div>
                 <article class="main-information d-flexx d-col">
-                    <h2 class="cursive-font">${t.capital}</h2>
+                    <h2 class="less-cursive-font">${t.capital}</h2>
                     <div class="info-places d-flexx d-row">
-                        <small>LAT: ${t.latitude}</small>
-                        <small>LONG: ${t.longitude}</small>
+                        <small class="label-general">LAT: ${t.latitude}</small>
+                        <small class="label-general">LONG: ${t.longitude}</small>
                     </div>
                     <p class="description" aria-label="${t.description} ${t.lore}">${t.description} ${t.lore}</p>
                     <div class="colors d-flexx d-row">
@@ -84,6 +86,9 @@ export class InformationView extends LitElement {
                 </div>
         `)); 
     }
+    /* ----END RENDER FUNCTIONS ---- */
+
+    /* ---- ANIMATION FUNCTIONS ---- */
     _animateTexts(){
         gsap.registerPlugin(SplitText);
 
@@ -103,5 +108,22 @@ export class InformationView extends LitElement {
             },
         });
     }
+
+    _animationHeight(){
+        const mainContainer = this.renderRoot.querySelector(".information-container");
+
+        gsap.fromTo(
+            mainContainer,
+            {
+                opacity: 0
+            },
+            {
+                opacity: 1,
+                duration: 1.2,
+                ease: "power4.out",
+            }
+        );
+    }
+    /* ----END ANIMATION FUNCTIONS ---- */
 }
 customElements.define('information-view', InformationView);

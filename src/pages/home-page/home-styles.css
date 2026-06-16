@@ -1,11 +1,13 @@
 .main-section{
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     padding:var(--Pad16);
     flex-wrap: wrap;
     justify-content: start;
     align-items: stretch;
     gap: var(--Pad16);
+    background-color: var(--Blanco);
 }
 
 didieros-link-component{

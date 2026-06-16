@@ -4,16 +4,222 @@
     background-color: transparent;
     padding: 0;
     border-radius: 0;
+    color: var(--Negro);
 }
     .customization-container > *{
         width: 100%;
     }
+    .first-container{
+        align-items: start;
+    }
     .display-container{
         min-height: 100px;
+        flex-wrap: nowrap;
+        gap: var(--Pad8);
+        align-items: start;
     }
-        .display-container > h3{
-            text-transform: capitalize;
+        .item-display{
+            flex-grow: 1;
+            width: 40%;
         }
+
+        .player-info{
+            justify-content: start;
+            align-items: start;
+            gap: var(--Pad8);
+            width: 30%;
+            height: 100%;
+        }
+            .banner-player{
+                width: 100%;
+                height: 60px;
+                background-color: var(--Negro);
+                overflow: hidden;
+                border-radius: var(--Pad8);
+            }
+            .banner-bg{
+                background: linear-gradient(to right, var(--Color1), var(--Color3), var(--Color2));
+            }
+                .aetherion{
+                    --Color1: #F4F7FF;
+                    --Color2: #C8D8FF;
+                    --Color3: #7B9CFF;
+                }
+                .drakmor{
+                    --Color1: #C14924;
+                    --Color2: #FF7A30;
+                    --Color3: #2A0F0A;
+                }
+                .eldervale{
+                    --Color1: #3A7D44;
+                    --Color2: #9FD356;
+                    --Color3: #E8FFE0;
+                }
+                .nocthyr{
+                    --Color1: #1B1B2F;
+                    --Color2: #533483;
+                    --Color3: #8F94FB;
+                }
+                .solgard{
+                    --Color1: #FFF1A6;
+                    --Color2: #F6C945;
+                    --Color3: #FF9F1C;
+                }
+                .frosthelm{
+                    --Color1: #8FD3FE;
+                    --Color2: #E0F7FF;
+                    --Color3: #4B6584;
+                }
+                .nymeris{
+                    --Color1: #0077B6;
+                    --Color2: #48CAE4;
+                    --Color3: #CAF0F8;
+                }
+                .grimHollow{
+                    --Color1: #2D132C;
+                    --Color2: #801336;
+                    --Color3: #C72C41;
+                }
+                .thornreach{
+                    --Color1: #355834;
+                    --Color2: #6B8F71;
+                    --Color3: #B7CE63;
+                }
+                .zephyria{
+                    --Color1: #D7F0FF;
+                    --Color2: #89C2FF;
+                    --Color3: #5AA9E6;
+                }
+                .banner-player > h2{
+                    text-transform: capitalize;
+                    font-size: var(--Pad32);
+                }
+            .basic-info{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                justify-content: start;
+                gap: var(--Pad8);
+                flex-wrap: wrap;
+            }
+                .level{
+                    background-color: var(--Naranja);
+                    border: 2px solid var(--Naranja2);
+                }
+                .label-stats{
+                    font-size: var(--Pad8);
+                }
+                    .label-stats > svg{
+                        width: 12px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
+            .cards-container{
+                gap: var(--Pad8);
+                flex-wrap: wrap;
+                justify-content: stretch;
+                align-items: stretch;
+            }
+
+
+        .player-stats{
+            /* gap: var(--Pad16); */
+        }
+            #statsChar{
+                
+            }
+            .other-stats-info{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                flex-wrap: nowrap;
+                color: var(--Negro);
+                
+                gap: var(--Pad16);
+            }
+                .stats{
+                    width: 60px;
+                    max-width: 90px;
+                    height: auto;
+                    padding: var(--Pad8);
+                    border-radius: 8px 8px 12px 12px;
+                    corner-bottom-shape: bevel bevel;
+                    flex-wrap: nowrap;
+                    gap: var(--Pad8);
+                    background-color: var(--Blanco);
+                }
+                    .stats > span{
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                        border-radius: 6px;
+                    }
+                        .stamina{
+                            background-color: #F2C14E;
+                        }
+                        .attack{
+                            background-color: #5FAD56;
+                        }
+                        .walk{
+                            background-color: #3891A6;
+                        }
+                        .health{
+                            background-color: #A8201A;
+                        }
+                        .stats svg{
+                            width: 20px;
+                            height: auto;
+                            aspect-ratio: 1/1;
+                            color: #fff;
+                        }
+                    .stats > p{
+                        font-size: 12px;
+                    }
+        /* .circle-info{
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                justify-content: start;
+                gap: var(--Pad8);
+                flex-wrap: nowrap;
+                color: var(--Negro);
+            }
+                .stamina{
+                    background-color: #F2C14E;
+                }
+                .attack{
+                    background-color: #5FAD56;
+                }
+                .walk{
+                    background-color: #3891A6;
+                }
+                .health{
+                    background-color: #A8201A;
+                }
+                .circle{
+                    width: 55px;
+                    height: auto;
+                    aspect-ratio: 1/1;overflow: hidden;
+                    border-radius: 50%;
+                    position: relative;
+                    cursor: pointer;
+                }
+                    .circle svg{
+                        width: 16px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
+                    .circle > p{
+                        position: absolute;
+                        transform: translateX(-50%);
+                        bottom: 3px;
+                        left: 50%;
+                        font-size: 12px;
+                    } */
+
+
+
+
     .btns-container{
         justify-content: start;
         gap: var(--Pad8);

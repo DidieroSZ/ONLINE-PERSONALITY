@@ -48,7 +48,7 @@ export class TypeComponent extends LitElement {
                 value="${this.idType}"
                 .checked=${this.checkedType}
                 @change=${this._onChange}>
-                <div class="inner-type-btn border d-flexx d-col ${this.idType}">
+                <div class="inner-type-btn border d-flexx d-col">
                     <span class="trans">${unsafeHTML(icons[this.idType])}</span>
                     <p class="trans">${this.nameType}</p>
                 </div>
