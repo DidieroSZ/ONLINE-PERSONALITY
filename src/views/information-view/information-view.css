@@ -49,10 +49,18 @@
                 border-width: 1px;
             }
 
-
     .footer-information{
         height: auto;
         border-width: 1px 0 0 0;
         padding-top: var(--Pad16);
         font-size: 12px;
     }
+
+@media (max-width: 900px) {
+    .header-information{
+        height: auto;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--Pad16);
+    }
+}   

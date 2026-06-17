@@ -175,52 +175,25 @@
                     .stats > p{
                         font-size: 12px;
                     }
-        /* .circle-info{
-                width: 100%;
-                height: auto;
-                overflow: hidden;
-                justify-content: start;
-                gap: var(--Pad8);
-                flex-wrap: nowrap;
-                color: var(--Negro);
-            }
-                .stamina{
-                    background-color: #F2C14E;
-                }
-                .attack{
-                    background-color: #5FAD56;
-                }
-                .walk{
-                    background-color: #3891A6;
-                }
-                .health{
-                    background-color: #A8201A;
-                }
-                .circle{
-                    width: 55px;
-                    height: auto;
-                    aspect-ratio: 1/1;overflow: hidden;
-                    border-radius: 50%;
-                    position: relative;
-                    cursor: pointer;
-                }
-                    .circle svg{
-                        width: 16px;
-                        height: auto;
-                        aspect-ratio: 1/1;
-                    }
-                    .circle > p{
-                        position: absolute;
-                        transform: translateX(-50%);
-                        bottom: 3px;
-                        left: 50%;
-                        font-size: 12px;
-                    } */
-
-
 
 
     .btns-container{
         justify-content: start;
         gap: var(--Pad8);
     }
+
+@media (max-width: 900px) {
+.customization-container{
+    flex-direction: column-reverse;
+}
+    .display-container{
+        flex-direction: column;
+        gap: 0;
+    }
+        .item-display{
+            width: 100%;
+        }
+        .player-info{
+            gap: var(--Pad16);
+        }
+}  

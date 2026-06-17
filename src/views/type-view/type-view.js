@@ -26,7 +26,7 @@ export class TypeView extends LitElement {
     constructor() {
         super();
         this.selectedType ='aetherion';
-    }
+    };
 
     static styles = [
         css`${unsafeCSS(generalStyles)}`,

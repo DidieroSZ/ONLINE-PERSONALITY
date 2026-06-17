@@ -8,7 +8,7 @@ import innerStyles from './config-component.css?inline';
 /* --- STYLES --- */
 
 /* --- ICONS --- */
-import { icons } from '../../utils/icons.js'
+import { icons } from '../../utils/icons.js';
 /* --- ICONS --- */
 
 export class ConfigComponent extends LitElement {
@@ -28,11 +28,7 @@ export class ConfigComponent extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-
-        document.documentElement.setAttribute(
-            'data-theme',
-            this.theme
-        );
+        document.documentElement.setAttribute('data-theme', this.theme);
     }
 
     render() {
@@ -42,16 +38,16 @@ export class ConfigComponent extends LitElement {
                     @click=${this.toggleTheme}>
                     ${this.theme === 'dark' ? unsafeHTML(icons.moon) : unsafeHTML(icons.solgard)}
             </button>
+            <!-- 
             <button class="btn-gen btn-secundary trans d-flexx">${unsafeHTML(icons.languages)}</button>
+            -->
         </div>
             
         `;
     }
 
-
     toggleTheme() {
         this.theme = this.theme === 'dark' ? 'light' : 'dark';
-
         document.documentElement.setAttribute('data-theme', this.theme);
 
         this.dispatchEvent(new CustomEvent('theme-selected', {
