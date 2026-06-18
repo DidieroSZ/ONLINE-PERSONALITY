@@ -7,7 +7,7 @@
         width: fit-content;
         position: absolute;
         gap: var(--Pad8);
-        right: calc( -1* (var(--Pad32) + var(--Pad8)));
+        right: -45px;
         top: 0;
     }
     .header-type-container{
@@ -41,8 +41,23 @@
         position: absolute;
         gap: var(--Pad8);
         right: 0;
-        top: -50px;
+        top: -45px;
     }
+            .footer-type-container > *{
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 15%;
+            }
+}
+
+@media (max-width: 800px) {
+            .footer-type-container > *{
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 25%;
+            }
+}
+@media (max-width: 600px) {
             .footer-type-container > *{
                 flex-grow: 1;
                 flex-shrink: 1;
