@@ -35,7 +35,7 @@ export class ConfigComponent extends LitElement {
         return html`
         <div class="config-component d-flexx d-col">
             <button class="btn-gen btn-secundary trans d-flexx"
-                    @click=${this.toggleTheme}>
+                    @click=${this._handleThemeChange}>
                     ${this.theme === 'dark' ? unsafeHTML(icons.moon) : unsafeHTML(icons.solgard)}
             </button>
             <!-- 
@@ -46,7 +46,18 @@ export class ConfigComponent extends LitElement {
         `;
     }
 
-    toggleTheme() {
+    _handleThemeChange() {
+        if (!document.startViewTransition) {
+            this._toggleTheme();
+            return;
+        }
+
+        document.startViewTransition(() => {
+            this._toggleTheme();
+        });
+    }
+
+    _toggleTheme() {
         this.theme = this.theme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', this.theme);
 

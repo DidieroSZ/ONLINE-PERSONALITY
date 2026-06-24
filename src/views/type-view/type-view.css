@@ -27,7 +27,7 @@
     }
         .footer-type-container > *{
             flex-grow: 1;
-            flex-shrink: 2;
+            flex-shrink: 1;
             width: 18%;
         }
 
@@ -46,7 +46,7 @@
             .footer-type-container > *{
                 flex-grow: 1;
                 flex-shrink: 1;
-                width: 15%;
+                width: 18%;
             }
 }
 
