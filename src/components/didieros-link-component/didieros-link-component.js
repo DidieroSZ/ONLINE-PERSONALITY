@@ -12,19 +12,10 @@ import { icons } from '../../utils/icons.js'
 /* --- ICONS --- */
 
 export class DidierosLinkComponent extends LitElement {
-    static properties = {
-
-    };
-
-    constructor() {
-        super();
-
-    }
-
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
-    ]
+    ];
 
     render() {
         return html`
@@ -32,6 +23,6 @@ export class DidierosLinkComponent extends LitElement {
                 Didier Saucedo
             </a>
         `;
-    }
+    };
 }
 customElements.define('didieros-link-component', DidierosLinkComponent);

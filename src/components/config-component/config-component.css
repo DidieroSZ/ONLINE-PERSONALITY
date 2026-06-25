@@ -2,10 +2,6 @@
     width: auto;
     height: auto;
     overflow: hidden;
-    position: absolute;
-    gap: var(--Pad8);
-    right: calc( -1* (var(--Pad32) + var(--Pad8)));
-    top: 0;
 }
     .config-component > button{
         aspect-ratio: 1/1;

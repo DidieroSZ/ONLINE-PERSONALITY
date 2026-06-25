@@ -8,10 +8,6 @@ import generalStyles from '../../styles/general.css?inline';
 import innerStyles from './information-view.css?inline';
 /* --- STYLES --- */
 
-/* --- COMPONENTS --- */
-/* import '../../components/type-component/type-component.js'; */
-/* --- COMPONENTS --- */
-
 /* --- ICONS --- */
 import { icons } from '../../utils/icons.js'
 /* --- ICONS --- */
@@ -33,7 +29,7 @@ export class InformationView extends LitElement {
     constructor() {
         super();
         this.selectedType ='aetherion';
-    }
+    };
 
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
@@ -43,10 +39,9 @@ export class InformationView extends LitElement {
     async updated(changedProperties){
         if (changedProperties.has('selectedType')) {
             await this.updateComplete;
-            /* this._animateTexts(); */
             this._animationHeight();
         }
-    }
+    };
 
     render() {
         return html`
@@ -54,7 +49,7 @@ export class InformationView extends LitElement {
                 ${this._renderInformation()}
             </section>
         `;
-    }
+    };
 
     /* ---- RENDER FUNCTIONS ---- */
     _renderInformation(){

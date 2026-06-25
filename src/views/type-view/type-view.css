@@ -1,21 +1,25 @@
 .type-container{
     gap: var(--Pad16);
     overflow: visible;
+    position: relative;
 }
-    .type-container > *{
-        width: 100%;
+    config-component{
+        width: fit-content;
+        position: absolute;
+        gap: var(--Pad8);
+        right: -45px;
+        top: 0;
     }
     .header-type-container{
-        justify-content: space-between;
+        width: 100%;
+        justify-content: start;
         color: var(--Negro);
         font-size: 12px;
         text-transform: uppercase;
         font-weight: bold;
     }
-        .header-type-container > button{
-            font-weight: bold;
-        }
     .footer-type-container{
+        width: 100%;
         gap: var(--Pad16);
         flex-wrap: wrap;
         justify-content: stretch;
@@ -23,6 +27,40 @@
     }
         .footer-type-container > *{
             flex-grow: 1;
-            flex-shrink: 2;
+            flex-shrink: 1;
             width: 18%;
         }
+
+@media (max-width: 900px) {
+    .type-container{
+        gap: var(--Pad16);
+        overflow: visible;
+    }
+    config-component{
+        width: fit-content;
+        position: absolute;
+        gap: var(--Pad8);
+        right: 0;
+        top: -45px;
+    }
+            .footer-type-container > *{
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 18%;
+            }
+}
+
+@media (max-width: 800px) {
+            .footer-type-container > *{
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 25%;
+            }
+}
+@media (max-width: 600px) {
+            .footer-type-container > *{
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 35%;
+            }
+}

@@ -12,4 +12,21 @@
 
 didieros-link-component{
     position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@media (max-width: 900px) {
+    .main-section > *{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-section{
+        padding: 64px var(--Pad16) var(--Pad16) var(--Pad16);
+    }
+    didieros-link-component{
+        top: var(--Pad16);
+    }
 }

@@ -27,7 +27,7 @@ export class TypeComponent extends LitElement {
         this.idType = '';
         this.nameType = '';
         this.checkedType = false;
-    }
+    };
 
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
@@ -35,7 +35,6 @@ export class TypeComponent extends LitElement {
     ];
 
     firstUpdated(){
-        /* this._animationHover(); */
         this._animationClick();
     }
 

@@ -47,13 +47,12 @@ export class CustomizationView extends LitElement {
 
         this.parseado = false;
         this.statsChart = null;
-    }
+    };
 
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
     ];
-
 
     async updated(changedProperties){
         if(changedProperties.has('character') && this.parseado){
@@ -68,7 +67,6 @@ export class CustomizationView extends LitElement {
         }
     }
 
-    
 
     render() {
         return html`
@@ -85,7 +83,6 @@ export class CustomizationView extends LitElement {
 
     async _generateName(){
         this.currentRealm = this.selectedType;
-        
 
         const response = await fetch('https://set.world/api/roll/character');
         this.character = await response.json();
@@ -218,7 +215,6 @@ export class CustomizationView extends LitElement {
                         ticks: {
                             color: chartTextColor,
                             backdropColor: 'transparent',
-
                         }
                     }
                 },

@@ -41,24 +41,24 @@ export class HomePage extends LitElement {
         super();
         this.selectedType = 'aetherion';
         this.theme = '';
-    }
+    };
 
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(innerStyles)}`,
-    ]
+    ];
 
     async firstUpdated(){
         await this.updateComplete;
         this._animationReveal();
-    }
+    };
 
     async firstUpdated() {
 
         await this.updateComplete;
 
         this._animateEntrance();
-    }
+    };
 
     render() {
         return html`
@@ -69,14 +69,14 @@ export class HomePage extends LitElement {
                 <customization-view class="reveal" .theme=${this.theme} .selectedType=${this.selectedType}></customization-view>
             </main>
         `;
-    }
+    };
 
     _typeChanged(e) {
         this.selectedType = e.detail.type;
-    }
+    };
     _themeChanged(e) {
         this.theme = e.detail.theme;
-    }
+    };
 
     _animationReveal(){
         const container = this.renderRoot.querySelector('.cont-1');
@@ -88,7 +88,7 @@ export class HomePage extends LitElement {
             duration: 1000
 
         });
-    }
+    };
 
     _animateEntrance() {
         const containers = this.renderRoot.querySelectorAll('.reveal');
@@ -100,6 +100,6 @@ export class HomePage extends LitElement {
             ease: 'power3.out',
             stagger: 0.2
         });
-    }
+    };
 }
 customElements.define('home-page', HomePage);
